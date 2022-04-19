@@ -6,6 +6,8 @@
 #include <stdio.h>
 #include <sstream>
 #include <locale.h>
+#include <ctype.h>
+#include <algorithm>
 
 using namespace std;
 
@@ -18,14 +20,6 @@ int error(int i)
     if (i == 3)
         cout << "Ошибка: Указанного файла или пути не существует" << endl;
     return 0;
-}
-
-void check_comma(std::string::size_type n, std::string &s)
-{
-  if(n == std::string::npos)
-    return ;
-  else
-    s.erase(n);
 }
 
 int main(int argc, char **argv)
@@ -49,18 +43,15 @@ int main(int argc, char **argv)
     {
         while (getline(fin, s))
         {
+            replace_if(s.begin(), s.end(), ::ispunct, ' ');
             istringstream iss(s);
             while (iss >> s2)
             {
-                i = s2.find(",");
-                check_comma(i, s2);
                 if (s2 == c1)
                 {
                     num = 0;
                     while (iss >> s2)
                     {
-                        i = s2.find(",");
-                        check_comma(i, s2);
                         num++;
                         if (s2 == c2 && num <= rasst + 1)
                         {
