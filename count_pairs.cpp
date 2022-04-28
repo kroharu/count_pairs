@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <cstring>
-// #include <ncurses.h>
+//#include <ncurses.h>
 #include <conio.h>
 #include <stdio.h>
 #include <sstream>
@@ -45,10 +45,10 @@ int main(int argc, char **argv)
     fin.open(argv[1]);
     if (fin.good())
     {
-        while (getline(fin, s))
+        while (std::getline(fin, s))
         {
-            replace_if(s.begin(), s.end(), ::ispunct, ' ');
-            istringstream iss(s);
+            std::replace_if(s.begin(), s.end(), ::ispunct, ' ');
+            std::istringstream iss(s);
             while (iss >> s2)
             {
                 if (s2 == c1)
