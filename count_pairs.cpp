@@ -15,11 +15,14 @@ using namespace std;
 int error(int i)
 {
     if (i == 1)
-        cout << "Ошибка: Использование приложения: count_pairs.exe [путь к текстовому файлу] [первое искомое слово] [второе искомое слово] [максимальное допустимое расстояние между словами]" << endl;
+        cout << "Error: Usage: count_pairs.exe [path to the txt file] [first word] [second word] [max length between words]" << endl;
+        // cout << "Ошибка: Использование приложения: count_pairs.exe [путь к текстовому файлу] [первое искомое слово] [второе искомое слово] [максимальное допустимое расстояние между словами]" << endl;
     if (i == 2)
-        cout << "Ошибка: Необходимо, чтобы файл был с расширением .txt" << endl;
+        cout << "Error: file format must be .txt" << endl;
+        // cout << "Ошибка: Необходимо, чтобы файл был с расширением .txt" << endl;
     if (i == 3)
-        cout << "Ошибка: Указанного файла или пути не существует" << endl;
+        cout << "Error: no such file or path" << endl;
+        // cout << "Ошибка: Указанного файла или пути не существует" << endl;
     return 0;
 }
 
@@ -67,7 +70,7 @@ int main(int argc, char **argv)
     }
     else
         return (error(3));
-    cout << "Уникальных пар в файле: " << col << endl;
-    getch();
+    cout << "Unique pairs in this file: " << col << endl;
+    // cout << "Уникальных пар в файле: " << col << endl;
     return 0;
 }
